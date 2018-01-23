@@ -7,7 +7,7 @@
      fuzzywuzzy:https://pypi.python.org/pypi/fuzzywuzzy<br>
      requests:https://pypi.python.org/pypi/requests
      
-<br><br><h2>How  to  setup ?</h2><br>
+<br><h2>How  to  setup ?</h2><br>
    1 . Change the song_dir variable in line 6 of the main.py to the directory where songs have to be saved
 ```
 song_dir = "path/to/folder/"
