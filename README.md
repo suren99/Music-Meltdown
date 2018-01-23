@@ -1,12 +1,18 @@
 # Music-Meltdown
 
    Are u a music lover ?.Ever faced trouble in downloading <strong> tamil </strong> songs ?.Then Music-Meltdown is what you need
-   <br><br><h2>How  to  setup ?</h2><br>
-   1 . change the song_dir variable in line 6 of the main.py to the directory where songs have to be saved
+   
+
+<h2>Modules to be installed</h2> 
+     fuzzywuzzy:https://pypi.python.org/pypi/fuzzywuzzy
+     requests:https://pypi.python.org/pypi/requests
+     
+<h2>How  to  setup ?</h2><br>
+   1 . Change the song_dir variable in line 6 of the main.py to the directory where songs have to be saved
 ```
 song_dir = "path/to/folder/"
 ```
-2 . run
+2 . Run
 ```
 python main.py
 ```
@@ -15,5 +21,4 @@ python main.py
     <strong> . You cant download songs of a movie which is not updated in the local repository</strong>
 
 <h3>U are ready to go now !!!!!<h3>
- 
  
