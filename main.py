@@ -21,7 +21,6 @@ class website:
                 song.write(data)
                 song.close()
 
-
         def get_song_list(self,url):
                 r=requests.get(url)
                 soup=BeautifulSoup(r.text,"html.parser")
@@ -47,6 +46,8 @@ class website:
                 movie=movie.replace('\n','')
                 if not os.path.exists("/Users/suren/Songs/"+movie):
                         os.mkdir("/Users/suren/Songs/"+movie)
+                last_downloaded_fp = open("lastdownloaded.txt","w")
+                last_downloaded_fp.write(music_dir+""+movie.replace(" ","\ "))
                 for each_form_tags in form_tags:
                        if len(list(each_form_tags.find_all("input",value="Download 320kbps")))==0 and len(list(each_form_tags.find_all("input",type="hidden")))!=0:
                                print "Downloading "+songs[i]
