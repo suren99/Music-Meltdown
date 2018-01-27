@@ -3,7 +3,7 @@ import requests
 from fuzzywuzzy import process
 import os
 from bs4 import BeautifulSoup
-music_dir ="/Users/suren/Songs/"
+music_dir = "/Users/suren/Songs/" 
 class website:
         def __init__(self):
                 self.hdr= {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
@@ -44,8 +44,8 @@ class website:
                 form_tags=soup.find_all("form")
                 i=0
                 movie=movie.replace('\n','')
-                if not os.path.exists("/Users/suren/Songs/"+movie):
-                        os.mkdir("/Users/suren/Songs/"+movie)
+                if not os.path.exists(music_dir+movie):
+                        os.mkdir(music_dir+movie)
                 last_downloaded_fp = open("lastdownloaded.txt","w")
                 last_downloaded_fp.write(music_dir+""+movie.replace(" ","\ "))
                 for each_form_tags in form_tags:
