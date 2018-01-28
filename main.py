@@ -127,5 +127,6 @@ def refresh():
 if __name__ == "__main__":
     site=website()
     options={1:get_movie_name,2:refresh}
+    print "1.Download 2.Refresh "
     chosen=int(raw_input())
     options[chosen]()
