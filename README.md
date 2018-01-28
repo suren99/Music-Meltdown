@@ -21,3 +21,13 @@ python main.py
 
 <h3>U are ready to go now !!!!!<h3>
  
+ <h3>New updates</h3>
+ <ul>
+   <li>Now you can delete the last album downloaded . Just run
+      
+```
+  remove.sh
+
+```
+   <li>When you hit refresh option , New repositories updated are also shown. So you will so be aware of the newest albums released.
+ </ul>
