@@ -48,6 +48,7 @@ class website:
                         os.mkdir(music_dir+movie)
                 last_downloaded_fp = open("lastdownloaded.txt","w")
                 last_downloaded_fp.write(music_dir+""+movie.replace(" ","\ "))
+                last_downloaded_fp.close()
                 for each_form_tags in form_tags:
                        if len(list(each_form_tags.find_all("input",value="Download 320kbps")))==0 and len(list(each_form_tags.find_all("input",type="hidden")))!=0:
                                print "Downloading "+songs[i]
@@ -71,6 +72,7 @@ class website:
                                 movies+=[each_div_tag.attrs["title"] for each_div_tag in div_tags]
                                 page_no+=1
                 return movies,links
+
 
 def get_movie_name():
         print "Movie-name:"
@@ -102,12 +104,21 @@ def refresh():
         print "Updating the repository.Please Wait"
         movies,links=site.get_movie_list_and_links()
         fp=open("movie.txt","r")
-        prev_movie_list = fp.readlines();
+        prev_movie_list = set(fp.readlines());
         fp.close()
         fp = open("movie.txt","w")
         movies=[i.encode('ascii')for i in movies]
         links=[i.encode('ascii') for i in links]
         movies_links=[each_movie+','+each_link for each_movie,each_link in zip(movies,links)]
+        fl = 0
+        print "New albums:"
+        for each_movies_links in movies_links:
+            if each_movies_links+"\n" not in prev_movie_list:
+                print each_movies_links[:each_movies_links.index(",")]
+                fl = 1
+        if not fl:
+            print "sorry no new repositories found"
+        print ""
         result='\n'.join(movies_links)
         fp.write(result)
         fp.close()
