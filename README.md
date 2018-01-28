@@ -16,8 +16,9 @@ song_dir = "path/to/folder/"
 ```
 python main.py
 ```
-3 . Two options are displayed . In order to download continue with the first option . The second option is called <strong> Refresh</strong> . This refresh option updates your local repository (movie.txt).This keeps your local repository upto date. So Its necessary to run this periodically.
-    <strong>You cant download songs of a movie which is not updated in the local repository</strong>
+3 . Two options are displayed . In order to download continue with the first option . The second option is called <strong> Refresh</strong> . This refresh option updates your local repository (movie.txt).This keeps your local repository upto date. So Its necessary to run this periodically.<strong>You cant download songs of a movie which is not updated in the local repository</strong>
+
+4. Either you mistype the movie name or type only partial of the movie name.You are provided with list of suggestions which matches with the  movie name. You are free to choose whichever suggested album you wanted to download 
 
 <h3>U are ready to go now !!!!!<h3>
  
