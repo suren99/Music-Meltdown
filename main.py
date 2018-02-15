@@ -58,7 +58,9 @@ class website:
         def get_movie_list_and_links(self):
                 movies=[]
                 links=[]
-                for each_alphabet in list(map(chr,range(65,90))):
+                pages = list(map(chr,range(65,90)))
+                pages = pages + ['9']
+                for each_alphabet in pages:
                         url="http://tamilfreemp3songs.com/Movies/"+each_alphabet
                         page_no=1
                         while True:
