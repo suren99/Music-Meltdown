@@ -8,15 +8,15 @@
      requests:https://pypi.python.org/pypi/requests
   
 <br><h3>How  to  setup ?</h3><br>
-   1 . Change the song_dir variable in line 6 of the main.py to the directory where songs have to be saved
+   1 . Change the song_dir variable in line 10 of the main.py to the directory where songs have to be saved
 ```
-song_dir = "path/to/folder/"
+music_dir = "path/to/folder/"
 ```
 2 . Run
 ```
 python main.py
 ```
-3 . Two options are displayed . In order to download continue with the first option . The second option is called <strong> Refresh</strong> . This refresh option updates your local repository (movie.txt).This keeps your local repository upto date. So Its necessary to run this periodically.<strong>You cant download songs of a movie which is not updated in the local repository</strong><br><br>
+3 . Two options are displayed . In order to download continue with the first option . The second option is called <strong> Refresh</strong> . This refresh option updates your local repository (movies.txt).This keeps your local repository upto date. So Its necessary to run this periodically.<strong>You cant download songs of a movie which is not updated in the local repository</strong><br><br>
 4. Either you mistype the movie name or type only partial of the movie name.You are provided with list of suggestions which matches with the  movie name. You are free to choose whichever suggested album you wanted to download 
 
 <h4>U are ready to go now !!!!!<h4>
@@ -29,5 +29,8 @@ python main.py
   remove.sh
 
 ```
-   <li>When you hit refresh option , New repositories updated are also shown. So you will so be aware of the newest albums released.
+   <li> More addtional features has been added.
+   Now you can <strong> search by song name </strong> also :D . Now refresh option creates a additional local repository for holding songs info (songs.txt). One more additional refresh is also now available. One,pulls up from scratch to the local repository (Full refresh) and the other which updates depending on updated_year.txt content. Full refresh option is recommended only if something fishy happens. </li>
+</ul>
  </ul>
+   
