@@ -165,7 +165,7 @@ def work():
 
 def go():
     print "Please wait for some time....."
-    thread = [None] * no_of_threads    
+    thread = [None] * no_of_threads
     for i in range(no_of_threads):
         thread[i] = threading.Thread(target = work)
         thread[i].start()
@@ -227,5 +227,7 @@ if __name__ == "__main__":
         fp = open("updated_year.txt","w")
         fp.write("1977");
         fp.close()
+        open("movies.txt", "w").close()
+        open("songs.txt", "w").close()
     options[chosen]()
     print "time taken : "+str(time.time() - start)+" secs"
