@@ -93,8 +93,8 @@ def get_movie_name():
         print str(cnt+1)+"."+each_match[0]+" - released in "+years[index[cnt]]
     chosen = int(raw_input())
     index = index[chosen-1]
-    url = "http://www.tamilfreemp3songs.com"+links[index].replace(' ','+')
-    print url
+    url = "http://www.tamilfreemp3songs.co"+links[index].replace(' ','+')
+    print "Downloading songs from " +links[index].split('/')[2];
     songs,links = site.get_song_list(url);
     movie = movies[index]
     if not os.path.exists(music_dir + movie):
@@ -123,7 +123,7 @@ def get_song_name():
         songs.append(each_song_link_movie[1])
         links.append(each_song_link_movie[2])
         movies.append(each_song_link_movie[3].replace("\n",""))
-    result = process.extract(song_name, songs, limit = 8)
+    result = process.extract(song_name, songs, limit = 10)
     print "Do u mean?"
     index = [None] * len(result)
     for cnt,each_match in enumerate(result):
@@ -154,12 +154,12 @@ def work():
                 ml_lock.acquire()
                 movies_list.update([year+","+each_movie+","+each_link for each_movie,each_link in zip(movies,links)])
                 for each_movie in movies:
-                    Q.put(("http://tamilfreemp3songs.com/Movie/"+each_movie,"songs",year))
+                    Q.put(("http://tamilfreemp3songs.co/Movie/"+each_movie,"songs",year))
                 ml_lock.release()
         else:
             songs,links = site.get_song_list(url)
             sl_lock.acquire()
-            songs_list.update([year+","+each_song+","+each_link+","+url.replace("http://tamilfreemp3songs.com/Movie/","") for each_song,each_link in zip(songs,links)])
+            songs_list.update([year+","+each_song+","+each_link+","+url.replace("http://tamilfreemp3songs.co/Movie/","") for each_song,each_link in zip(songs,links)])
             sl_lock.release()
         Q.task_done()
 
@@ -181,7 +181,7 @@ def go():
     # Queue up the work
     for each_range in total_range:
         for each_page in range(20):
-            Q.put(("http://www.tamilfreemp3songs.com/Year/"+each_range+"?page="+str(each_page + 1),"movie",each_range))
+            Q.put(("http://www.tamilfreemp3songs.co/Year/"+each_range+"?page="+str(each_page + 1),"movie",each_range))
     Q.join()
     # Calm up the workers
     for i in range(no_of_threads):
