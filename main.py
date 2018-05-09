@@ -94,16 +94,23 @@ def get_movie_name():
     chosen = int(raw_input())
     index = index[chosen-1]
     url = "http://www.tamilfreemp3songs.co"+links[index].replace(' ','+')
-    print "Downloading songs from " +links[index].split('/')[2];
+    print "\nYou have selected the movie :" + links[index].split('/')[2].replace("+"," ");
     songs,links = site.get_song_list(url);
     movie = movies[index]
     if not os.path.exists(music_dir + movie):
         os.mkdir(music_dir + movie)
-    print "List of songs"
+    print "List of songs :"
     for each_song in songs:
         print each_song
-    for i in range(len(links)):
-        site.download(links[i],songs[i],movies[index])
+    print "\nPlease select the indices of the song you would like to download separated by commas"
+    print "Press "+ str(len(songs) + 1) +" to download all"
+    choices = raw_input().split(',')
+    if str(len(songs) + 1) in choices:
+        for i in range(0,len(links)):
+            site.download(links[i], songs[i], movies[index])
+    else:
+        for each in choices:
+            site.download(links[int(each)-1], songs[int(each)-1], movies[index])
     print "Download complete"
     fp = open("last_downloaded.txt","w")
     fp.write(music_dir + "" + movie)
