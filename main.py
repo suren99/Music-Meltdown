@@ -100,8 +100,8 @@ def get_movie_name():
     if not os.path.exists(music_dir + movie):
         os.mkdir(music_dir + movie)
     print "List of songs :"
-    for each_song in songs:
-        print each_song
+    for cnt,each_song in enumerate(songs):
+        print str(cnt+1)+"."+each_song
     print "\nPlease select the indices of the song you would like to download separated by commas"
     print "Press "+ str(len(songs) + 1) +" to download all"
     choices = raw_input().split(',')
