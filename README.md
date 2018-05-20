@@ -31,6 +31,7 @@ python main.py
 ```
    <li> More addtional features has been added.
    Now you can <strong> search by song name </strong> also :D . Now refresh option creates a additional local repository for holding songs info (songs.txt). One more additional refresh is also now available. One,pulls up from scratch to the local repository (Full refresh) and the other which updates depending on updated_year.txt content. Full refresh option is recommended only if something fishy happens. </li>
+   <li> When you select download by movie name it will download all songs of the movie which you choose. :( . Here comes the saviour,now you are free to choose the songs from the movie which you would like to download. :D  </li>
 </ul>
  </ul>
    
