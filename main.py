@@ -86,10 +86,13 @@ def get_movie_name():
     result = process.extract(movie_name,movies,limit = 7)
     print "Do u mean?"
     index = [None] * len(result)
+    d = {}
     for cnt,each_match in enumerate(result):
-        #print str(cnt+1)+"."+each_match[0]+"."
-        index[cnt] = movies.index(each_match[0])
-       # print index[cnt],each_match
+        all_indices_of_each_match = [i for i,x in enumerate(movies) if x == each_match[0]]
+        if each_match[0] not in d:
+            d[each_match[0]] = 0
+        index[cnt] = all_indices_of_each_match[d[each_match[0]]]
+        d[each_match[0]] += 1
         print str(cnt+1)+"."+each_match[0]+" - released in "+years[index[cnt]]
     chosen = int(raw_input())
     index = index[chosen-1]
@@ -133,8 +136,13 @@ def get_song_name():
     result = process.extract(song_name, songs, limit = 10)
     print "Do u mean?"
     index = [None] * len(result)
+    d = {}
     for cnt,each_match in enumerate(result):
-        index[cnt] = songs.index(each_match[0])
+        all_indices_of_each_match = [i for i,x in enumerate(songs) if x == each_match[0]]
+        if each_match[0] not in d:
+            d[each_match[0]] = 0
+        index[cnt] = all_indices_of_each_match[d[each_match[0]]]
+        d[each_match[0]] += 1
         print str(cnt+1)+"."+each_match[0]+" from "+movies[index[cnt]]
     chosen = int(raw_input())
     index = index[chosen-1]
